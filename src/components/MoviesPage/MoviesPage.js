@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import * as API from 'services/API';
 import styled from 'styled-components';
 
@@ -11,7 +11,10 @@ const Div = styled.div`
 const MoviesPage = () => {
   const [query, setQuery] = useState('');
   const [search, setSearch] = useState(null);
+  const [_, setSearchParams] = useSearchParams();
+
   const mounted = useRef();
+
   useEffect(() => {
     async function FetchSearch() {
       const movie = await API.FetchSearch(query);
@@ -23,9 +26,11 @@ const MoviesPage = () => {
       FetchSearch();
     }
   }, [query]);
-  const handleSubmit = e => {
+
+  const handleSubmit = (e, query) => {
     e.preventDefault();
     setQuery(e.target.elements.query.value);
+    setSearchParams({ query: e.target.elements.query.value });
     e.target.reset();
   };
   return (
