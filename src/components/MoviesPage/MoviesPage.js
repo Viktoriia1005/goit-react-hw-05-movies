@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as API from 'services/API';
 import styled from 'styled-components';
 
@@ -11,7 +11,6 @@ const Div = styled.div`
 const MoviesPage = () => {
   const [query, setQuery] = useState('');
   const [search, setSearch] = useState(null);
-  const [_, setSearchParams] = useSearchParams();
 
   const mounted = useRef();
 
@@ -30,7 +29,6 @@ const MoviesPage = () => {
   const handleSubmit = (e, query) => {
     e.preventDefault();
     setQuery(e.target.elements.query.value);
-    setSearchParams({ query: e.target.elements.query.value });
     e.target.reset();
   };
   return (
