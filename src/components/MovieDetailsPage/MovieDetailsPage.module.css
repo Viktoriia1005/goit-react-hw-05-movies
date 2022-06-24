@@ -1,0 +1,21 @@
+ul {
+  padding: 0;
+}
+.cast {
+  margin-right: 20px;
+}
+
+.top__div {
+  display: flex;
+}
+.details {
+  margin-left: 10px;
+}
+.list {
+  padding-right: 40px;
+  list-style: none;
+  display: flex;
+}
+.list__item:not(:last-child) {
+  margin-right: 20px;
+}

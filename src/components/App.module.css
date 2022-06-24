@@ -1,0 +1,11 @@
+.home {
+  margin-right: 20px;
+}
+
+.nav__link {
+  margin-left: 20px;
+  color: aqua;
+}
+.active {
+  color: red;
+}
