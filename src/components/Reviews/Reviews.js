@@ -12,7 +12,7 @@ const Reviews = () => {
     }
     FetchReviews();
   }, [movie_id]);
-
+  console.log(reviews);
   return (
     <div>
       {reviews && (

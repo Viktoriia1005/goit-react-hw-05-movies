@@ -9,7 +9,6 @@ const Div = styled.div`
 `;
 const HomePage = () => {
   const [movies, setMovies] = useState(null);
-
   useEffect(() => {
     async function FetchTrend() {
       const movie = await API.FetchTrend();
@@ -18,7 +17,6 @@ const HomePage = () => {
 
     FetchTrend();
   }, []);
-
   return (
     <div>
       <h1> Trending today</h1>

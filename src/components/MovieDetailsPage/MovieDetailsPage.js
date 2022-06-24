@@ -7,16 +7,19 @@ import s from './MovieDetailsPage.module.css';
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   let { movie_id } = useParams();
-
+  // const mounted = useRef();
   useEffect(() => {
     async function FetchDetails() {
       const movie = await API.FetchDetails(movie_id);
       setMovie(movie);
     }
-
+    // if(!mounted.current){
+    //     mounted.current = true
+    //       }
+    //       else {
     FetchDetails();
+    //   }
   }, [movie_id]);
-
   let navigate = useNavigate();
 
   return (
@@ -83,5 +86,4 @@ const MovieDetailsPage = () => {
     </div>
   );
 };
-
 export default MovieDetailsPage;
