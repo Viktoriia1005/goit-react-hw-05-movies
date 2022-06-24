@@ -57,6 +57,6 @@ export const FetchSearch = async query => {
     );
     return response.data;
   } catch (error) {
-    throw new Error(error);
+    console.error(error);
   }
 };
