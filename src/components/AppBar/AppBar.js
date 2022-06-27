@@ -1,30 +1,11 @@
-import { Outlet, NavLink } from 'react-router-dom';
-import styles from '../App.module.css';
+import Navigation from '../Navigation/Navigation';
 
-const AppBar = () => {
-  let activeStyle = {
-    color: 'red',
-  };
+import s from './AppBar.module.css';
+
+export default function AppBar() {
   return (
-    <header className={styles.header}>
-      <NavLink
-        to="/"
-        className={styles.home}
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
-      >
-        Home
-      </NavLink>
-
-      <NavLink
-        to="/movies"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
-      >
-        Movies
-      </NavLink>
-      <hr />
-      <Outlet />
+    <header className={s.header}>
+      <Navigation />
     </header>
   );
-};
-
-export default AppBar;
+}
