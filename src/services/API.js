@@ -5,7 +5,7 @@ const API_KEY = '76293c6bcb8bbcc89a96d2b767d5c3a3';
 
 axios.defaults.baseURL = BASE_URL;
 
-async function getTrendingMovies() {
+export async function getTrendingMovies() {
   const url = `trending/movie/day?api_key=${API_KEY}`;
   try {
     const { data } = await axios.get(url);
@@ -15,7 +15,7 @@ async function getTrendingMovies() {
   }
 }
 
-async function getMovieById(movieId) {
+export async function getMovieById(movieId) {
   try {
     const { data } = await axios.get(`movie/${movieId}?api_key=${API_KEY}`);
     return data;
@@ -24,7 +24,7 @@ async function getMovieById(movieId) {
   }
 }
 
-async function getCastById(movieId) {
+export async function getCastById(movieId) {
   try {
     const { data } = await axios.get(
       `movie/${movieId}/credits?api_key=${API_KEY}`
@@ -35,7 +35,7 @@ async function getCastById(movieId) {
   }
 }
 
-async function getReviewsById(movieId) {
+export async function getReviewsById(movieId) {
   try {
     const { data } = await axios.get(
       `movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US`
@@ -46,7 +46,7 @@ async function getReviewsById(movieId) {
   }
 }
 
-async function getMoviesbySearchQuery(movieName) {
+export async function getMoviesbySearchQuery(movieName) {
   const url = `search/movie?api_key=${API_KEY}&query=${movieName}`;
   try {
     const { data } = await axios.get(url);
@@ -55,11 +55,3 @@ async function getMoviesbySearchQuery(movieName) {
     console.error(error);
   }
 }
-
-export default {
-  getTrendingMovies,
-  getMovieById,
-  getCastById,
-  getReviewsById,
-  getMoviesbySearchQuery,
-};

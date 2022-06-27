@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 
 import SearchBar from '../components/Searchbar/Searchbar';
 import MoviesGallery from '../components/MoviesGallery/MoviesGallery';
-import moviesApi from '../services/API';
+import * as moviesApi from '../services/API';
 
 import 'react-toastify/dist/ReactToastify.css';
 

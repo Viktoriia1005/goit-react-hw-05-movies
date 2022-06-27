@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import MoviesGallery from '../components/MoviesGallery/MoviesGallery';
-import moviesApi from '../services/API';
+import * as moviesApi from '../services/API';
 
 export default function HomePage() {
   const [movies, setMovies] = useState(null);
