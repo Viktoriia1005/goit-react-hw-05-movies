@@ -1,22 +1,19 @@
-import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { BsArrowLeftSquare } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 
 import s from './GalleryItem.module.css';
 
 export default function GalleryItem({ movie }) {
-  let navigate = useNavigate();
+  const location = useLocation();
+  const goBackURL = location?.state?.from ?? '/';
+
   return (
     <>
-      <button
-        type="button"
-        className={s.Button}
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
-        <BsArrowLeftSquare style={{ width: '2em', height: '2em' }} />
-      </button>
+      <div className={s.arrowLinkBox}>
+        <BsArrowLeftSquare className={s.arrowLink} />
+        <Link to={goBackURL}> Go back</Link>
+      </div>
       {movie && (
         <div className={s.Container}>
           <img
